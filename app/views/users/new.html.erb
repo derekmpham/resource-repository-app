@@ -1,0 +1,15 @@
+<h2>Sign Up</h2>
+
+<%= form_for :user, url: '/users' do |f| %>
+  Are you a student or teacher?</br>
+  <%= f.radio_button :role, 'student', :checked => true %>
+  <%= label :role_student, 'Student' %>
+  <%= f.radio_button :role, 'teacher' %>
+  <%= label :role_teacher, 'Teacher' %></br>
+  <%= label :email, 'Email' %></br>
+  <%= f.text_field :email %></br>
+  <%= label :password_hash, 'Password' %></br>
+  <%= f.password_field :password_hash %></br>
+  <%= f.submit "Submit" %>
+
+<% end %>
