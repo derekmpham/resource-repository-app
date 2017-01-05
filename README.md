@@ -1,24 +1,13 @@
-# README
+# Resource Repository App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Currently in Development!
 
-Things you may want to cover:
+Team DJ Orange Juice:
+* Derek Pham
+* Jin Di Giordano
+* James Draper
+* Woojae Yi
 
-* Ruby version
+Public Trello Link:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Resource Repository Trello](https://trello.com/b/tH6f2WTE/road-to-mvp)
