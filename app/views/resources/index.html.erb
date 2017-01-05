@@ -1,0 +1,7 @@
+<div id='all-resources'>
+  <ul>
+    <% @resources.each do |resource| %>
+    <li> <%= resource.title %> - Created By: <%= User.find(resource.creator_id).email %> </li>
+    <% end %>
+  </ul>
+</div>

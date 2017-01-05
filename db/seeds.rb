@@ -22,3 +22,10 @@ teacher_users = 10.times.map do
     role: 'teacher')
 end
 
+resources = 5.times.map do
+  teacher_users.each do |teacher|
+    teacher.resources.create!(title: Faker::Lorem.word,
+      creator_id: teacher.id)
+  end
+end
+
