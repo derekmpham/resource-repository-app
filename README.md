@@ -2,11 +2,15 @@
 
 Currently in Development!
 
+______________________________________
+
 Team DJ Orange Juice:
 * Derek Pham
 * Jin Di Giordano
 * James Draper
 * Woojae Yi
+
+______________________________________
 
 Public Trello Link:
 
@@ -14,7 +18,9 @@ Public Trello Link:
 
 
 Wireframe link:
+
 [Wireframe.cc](https://wireframe.cc/P4FsLK)
 
 Heroku Link
+
 [Resource Repository App](https://resource-repository-app.herokuapp.com/)
