@@ -1,0 +1,7 @@
+<div id='all-users'>
+  <ul>
+    <% @users.each do |user| %>
+    <li> <%= user.email %> : <%= user.role %> </li>
+    <% end %>
+  </ul>
+</div>
