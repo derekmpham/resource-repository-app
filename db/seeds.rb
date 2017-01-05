@@ -9,6 +9,8 @@ require 'faker'
 
 User.delete_all
 Resource.delete_all
+ResourceTag.delete_all
+Tag.delete_all
 
 student_users = 20.times.map do
   User.create!(email: Faker::Internet.email,
@@ -29,3 +31,12 @@ resources = 5.times.map do
   end
 end
 
+Tag.create(name: "Ruby")
+Tag.create(name:"JavaScript")
+Tag.create(name: "SQL")
+Tag.create(name: "Python")
+
+tagged_resources = Resource.all.each do |resource|
+  num = Tag.all.sample.id
+  ResourceTag.create!(resource_id: resource.id, tag_id: numra)
+end
