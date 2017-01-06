@@ -1,3 +1,11 @@
 <h1><%=@resource.title%></h1>
 
-<a href=""+<%=@resource.url%>+""><%=@resource.title%></a>
+<a href=""+<%=@resource.url%>+""><%=@resource.title%></a><br>
+<span>Tags: </span>
+<% @tags.each do |tag| %>
+	<% if tag == @tags.last %>
+		<span><%= tag.name %></span>
+	<% else %>
+		<span><%= tag.name %>, </span>
+	<% end %>
+<% end %>
