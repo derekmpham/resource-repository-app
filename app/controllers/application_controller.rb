@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
     render "index"
   end
 
+  def authorize
+    redirect_to '/login' unless current_user
+  end
+
 end
