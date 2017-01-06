@@ -16,7 +16,7 @@
       </h1>
       <% if current_user %>
         (<%= current_user.email %> - <%= current_user.role %>) <%= link_to "logout", logout_path %> <br>
-        <%= link_to "Create new resource", new_resource_path %>
+        <%= link_to "Create new resource", new_resource_path, :class => "btn btn-primary" %>
       <% end %>
     </nav>
     <%= yield %>
