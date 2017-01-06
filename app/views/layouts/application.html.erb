@@ -12,8 +12,10 @@
   <body>
     <nav>
       <h1>
-        DBC Resource Repository
+        <%= link_to "DBC Resource Repository", resources_path %>
       </h1>
+      <br>
+      <br>
       <% if current_user %>
         (<%= current_user.email %> - <%= current_user.role %>) <%= link_to "logout", logout_path %> <br>
         <% if current_user.role == 'teacher' %>
