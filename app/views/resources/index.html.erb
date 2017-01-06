@@ -2,7 +2,9 @@
 <div id='all-resources'>
   <ul>
     <% @resources.each do |resource| %>
-    <li> <%= resource.title %> - Created By: <%= User.find(resource.creator_id).email %> </li>
+    <li>
+      <button><img src='http://4.bp.blogspot.com/-7PN_8pgMDw4/T_DhGY4OK4I/AAAAAAAAK3g/r4eJ4_wRHRY/s1600/Star.jpg'></button>
+      <%= resource.title %> - Created By: User #<%= resource.creator_id %> </li>
     <% end %>
   </ul>
 </div>

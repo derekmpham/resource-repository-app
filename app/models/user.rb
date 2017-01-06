@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :favorites, foreign_key: "favoriter_id"
+  has_many :resources, through: :favorites
   has_many :resources, foreign_key: "creator_id"
 
   validates :email, :presence => true, :uniqueness => true
@@ -14,5 +15,5 @@ class User < ApplicationRecord
     @password = BCrypt::Password.create(new_password)
     self.password_hash = @password
   end
-  
+
 end
