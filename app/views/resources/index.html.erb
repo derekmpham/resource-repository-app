@@ -10,16 +10,13 @@
 <div id='all-resources'>
   <ul>
     <% if @q %>
+    <h3><%=@q.downcase%></h3>
       <% @tags.each do |tag| %>
-
         <% if tag.name == @q.downcase %>
-
             <% tag.resources.each do |resource| %>
               <li><%= link_to resource.title, resource.url %> </li>
             <% end %>
-
         <% end %>
-
       <% end %>
 
     <% else %>
