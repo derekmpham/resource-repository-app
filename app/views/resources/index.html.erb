@@ -1,10 +1,27 @@
+<h2>Search by Tag</h2>
 
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search by Tag:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<h2>Resources</h2>
 <div id='all-resources'>
+      <% if @q %>
+      <h3><%=@q.downcase%></h3>
+        <% @tags.each do |tag| %>
+          <% if tag.name == @q.downcase %>
+            <% tag.resources.each do |resource| %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
   <ul>
     <% @resources.each do |resource| %>
     <li>
-      <button><img src='http://4.bp.blogspot.com/-7PN_8pgMDw4/T_DhGY4OK4I/AAAAAAAAK3g/r4eJ4_wRHRY/s1600/Star.jpg'></button>
-      <%= resource.title %> - Created By: User #<%= resource.creator_id %> </li>
+      <button><i class="fa fa-star-o " aria-hidden="true"></i></button>
+      <%= resource.title %> - Created By: User #<%= resource.creator_id %> <%= link_to resource.title, resource.url %> </li>
     <% end %>
   </ul>
 </div>
