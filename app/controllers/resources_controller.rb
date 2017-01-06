@@ -20,9 +20,10 @@ class ResourcesController < ApplicationController
      if @resource.save
         # tags
         if params[:resource][:tags]
-          input_tags = params[:resource][:tags].split(' ')
+          input_tags = params[:resource][:tags].split(',')
           input_tags.each do |input_tag|
             input_tag.downcase!
+            input_tag.strip!
             # create tag if not found in database
             Tag.create(name: input_tag) if !Tag.find_by(name: input_tag)
       
