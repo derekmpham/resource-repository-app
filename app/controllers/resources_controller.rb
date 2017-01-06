@@ -28,7 +28,7 @@ class ResourcesController < ApplicationController
       
             #create resource_tag object in db for every tag associated with resource
             tag_obj = Tag.find_by(name: input_tag)
-            ResourceTag.create(resource_id: @resource.id, tag_id: tag_obj.id)
+            ResourceTag.create(resource_id: @resource.id, tag_id: tag_obj.id) if !ResourceTag.find_by(resource_id: @resource.id, tag_id: tag_obj.id)
           end
         end
 
