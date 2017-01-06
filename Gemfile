@@ -23,6 +23,7 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'hirb'
 gem 'bcrypt'
+gem 'ransack'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

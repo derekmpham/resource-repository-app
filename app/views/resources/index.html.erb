@@ -1,8 +1,28 @@
+<h2>Search by Tag</h2>
 
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search by Tag:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<h2>Resources</h2>
 <div id='all-resources'>
   <ul>
-    <% @resources.each do |resource| %>
-    <li> <%= resource.title %> - Created By: <%= User.find(resource.creator_id).email %> </li>
+    <% if @q %>
+    <h3><%=@q.downcase%></h3>
+      <% @tags.each do |tag| %>
+        <% if tag.name == @q.downcase %>
+            <% tag.resources.each do |resource| %>
+              <li><%= link_to resource.title, resource.url %> </li>
+            <% end %>
+        <% end %>
+      <% end %>
+
+    <% else %>
+      <% @resources.each do |resource| %>
+        <li><%= link_to resource.title, resource.url %> </li>
+      <% end %>
     <% end %>
   </ul>
 </div>

@@ -31,10 +31,10 @@ resources = 5.times.map do
   end
 end
 
-Tag.create(name: "Ruby")
-Tag.create(name:"JavaScript")
-Tag.create(name: "SQL")
-Tag.create(name: "Python")
+Tag.create(name: "ruby")
+Tag.create(name:"javascript")
+Tag.create(name: "sql")
+Tag.create(name: "python")
 
 tagged_resources = Resource.all.each do |resource|
   num = Tag.all.sample.id
