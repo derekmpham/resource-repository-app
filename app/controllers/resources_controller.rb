@@ -34,7 +34,12 @@ class ResourcesController < ApplicationController
 
   def search
     @resources = Resource.all
+    @tags = Tag.all
     @q = params[:q]
+
+    @tag = @tags.include?(@q)
+    p @q
+    p @tag
 
     render :index
   end

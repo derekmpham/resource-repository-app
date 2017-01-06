@@ -9,12 +9,21 @@
 <h2>Resources</h2>
 <div id='all-resources'>
   <ul>
-    <% @resources.each do |resource| %>
-      <% if @q %>
-        <% if resource.tags.include?(@q.downcase) %>
-          <li><%= link_to resource.title, resource.url %> </li>
+    <% if @q %>
+      <% @tags.each do |tag| %>
+
+        <% if tag.name == @q.downcase %>
+
+            <% tag.resources.each do |resource| %>
+              <li><%= link_to resource.title, resource.url %> </li>
+            <% end %>
+
         <% end %>
-      <% else %>
+
+      <% end %>
+
+    <% else %>
+      <% @resources.each do |resource| %>
         <li><%= link_to resource.title, resource.url %> </li>
       <% end %>
     <% end %>
