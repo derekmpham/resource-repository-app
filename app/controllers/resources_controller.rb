@@ -1,10 +1,14 @@
 class ResourcesController < ApplicationController
+
+  include SessionsHelper
+
   def index
-    @resources = Resource.all
+    @resources = Resource.joins(:favorites).group("resources.id").order("count(favorites.resource_id) desc")
   end
 
   def create
     @resource = Resource.new(resource_params)
+    @resource.creator_id = current_user.id
     # tags
     if params[:resource][:tags]
       input_tags = params[:resource][:tags].split(' ')
@@ -17,6 +21,10 @@ class ResourcesController < ApplicationController
         ResourcetTag.create(resource_id: @resource.id, tag_id: tag_obj.id)
       end
     end
+
+    # Tag.all.each do
+    #   @tag = Tag.new(parsed_tag_field)
+    # @resource.tags
 
     respond_to do |format|
      if @resource.save
