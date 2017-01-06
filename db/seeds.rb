@@ -38,5 +38,5 @@ Tag.create(name: "Python")
 
 tagged_resources = Resource.all.each do |resource|
   num = Tag.all.sample.id
-  ResourceTag.create!(resource_id: resource.id, tag_id: numra)
+  ResourceTag.create!(resource_id: resource.id, tag_id: num)
 end

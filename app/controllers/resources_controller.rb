@@ -1,6 +1,6 @@
 class ResourcesController < ApplicationController
   def index
-    @resources = Resource.all
+    @resources = Resource.all.order("count(favorites) desc")
   end
 
   def create
