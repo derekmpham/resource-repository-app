@@ -4,7 +4,7 @@ class ResourcesController < ApplicationController
 
   def index
     # @resources = Resource.joins(:favorites).group("resources.id").order("count(favorites.resource_id) desc")
-    @resources = Resrouce.all
+    @resources = Resource.all
   end
 
   def create
