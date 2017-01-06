@@ -14,14 +14,16 @@
       <% @tags.each do |tag| %>
         <% if tag.name == @q.downcase %>
             <% tag.resources.each do |resource| %>
-              <li><%= link_to resource.title, resource.url %> </li>
+              <li><i class="fa fa-star-o" aria-hidden="true"></i>
+<%= link_to resource.title, resource.url %> </li>
             <% end %>
         <% end %>
       <% end %>
 
     <% else %>
       <% @resources.each do |resource| %>
-        <li><%= link_to resource.title, resource.url %> </li>
+        <li><i class="fa fa-star-o" aria-hidden="true"></i>
+<%= link_to resource.title, resource.url %> </li>
       <% end %>
     <% end %>
   </ul>
