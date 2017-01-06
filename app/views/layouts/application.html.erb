@@ -14,15 +14,17 @@
       <h1>
         <%= link_to "DBC Resource Repository", resources_path %>
       </h1>
-      <br>
-      <br>
       <% if current_user %>
-        (<%= current_user.email %> - <%= current_user.role %>) <%= link_to "logout", logout_path %> <br>
+        <p class="nav navbar-nav navbar-right">(<%= current_user.email %> - <%= current_user.role %>) <%= link_to "logout", logout_path %></p>
+        <br>
+        <br>
+        <br>
         <% if current_user.role == 'teacher' %>
           <%= link_to "Create new resource", new_resource_path, :class => "btn btn-primary" %>
         <% end %>
       <% end %>
     </nav>
+    <br>
     <%= yield %>
   </body>
 </html>
