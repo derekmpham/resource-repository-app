@@ -38,8 +38,6 @@ class ResourcesController < ApplicationController
     @q = params[:q]
 
     @tag = @tags.include?(@q)
-    p @q
-    p @tag
 
     render :index
   end
