@@ -1,6 +1,7 @@
+
 <div id='all-resources'>
   <ul>
-    <% @resources.each.sort_by {|favoriters| favoriters.count} do |resource| %>
+    <% @resources.each do |resource| %>
     <li> <%= resource.title %> - Created By: <%= User.find(resource.creator_id).email %> </li>
     <% end %>
   </ul>
