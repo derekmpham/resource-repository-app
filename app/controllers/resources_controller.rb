@@ -32,6 +32,13 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
   end
 
+  def search
+    @resources = Resource.all
+    @q = params[:q]
+
+    render :index
+  end
+
   private
   def resource_params
     params.require(:resource).permit(:title, :url)
