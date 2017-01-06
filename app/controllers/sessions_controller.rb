@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
- include SessionsHelper
+  include SessionsHelper
+
   def new
   end
 
@@ -15,7 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to '/login'
+    redirect_to '/'
   end
 
 end
