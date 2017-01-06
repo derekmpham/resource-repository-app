@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :resources
 
   resources :favorites
-  get '/tags/new', to: 'tags#show'
+  get '/tags/new', to: 'tags#new'
   post '/tags', to: 'tags#create'
   get '/favorites/new', to: 'favorites#show'
   post '/favorites', to: 'favorites#create'

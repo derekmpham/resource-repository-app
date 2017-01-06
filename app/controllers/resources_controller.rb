@@ -1,10 +1,17 @@
 class ResourcesController < ApplicationController
+
+  include SessionsHelper
+
   def index
     @resources = Resource.all
   end
 
   def create
     @resource = Resource.new(resource_params)
+    @resource.creator_id = current_user.id
+    # Tag.all.each do
+    #   @tag = Tag.new(parsed_tag_field)
+    # @resource.tags
     respond_to do |format|
      if @resource.save
        format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
