@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <nav>
+      <h1>
+        DBC Resource Repository
+      </h1>
+      <% if current_user %>
+        (<%= current_user.email %> - <%= current_user.role %>) <%= link_to "logout", logout_path %>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>
