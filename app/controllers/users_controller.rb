@@ -23,4 +23,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :password_hash, :role)
   end
 
+  def check_favorites
+    if current_user.favorites.include?(Favorite.find_by(favoriter_id: current_user.id,
+      resource_id: ))
+  end
+
 end

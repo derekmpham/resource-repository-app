@@ -6,22 +6,34 @@
   <%= submit_tag("Search") %>
 <% end %>
 
-<h2>Resources</h2>
-<div id='all-resources'>
-      <% if @q %>
-      <h3><%=@q.downcase%></h3>
-        <% @tags.each do |tag| %>
-          <% if tag.name == @q.downcase %>
-            <% tag.resources.each do |resource| %>
-            <% end %>
-          <% end %>
+<div id='queries'>
+<% if @q %>
+  <h3><%=@q.downcase%></h3>
+    <% @tags.each do |tag| %>
+      <% if tag.name == @q.downcase %>
+        <% tag.resources.each do |resource| %>
+        <%= resource.title %>
         <% end %>
       <% end %>
+    <% end %>
+<% end %>
+</div>
+
+<h2>Resources</h2>
   <ul>
     <% @resources.each do |resource| %>
     <li>
-      <button><i class="fa fa-star-o " aria-hidden="true"></i></button>
-      <%= resource.title %> - Created By: User #<%= resource.creator_id %> <%= link_to resource.title, resource.url %> </li>
+      <% if current_user && current_user.favorites.include?(Favorite.find_by(favoriter_id: current_user.id,
+      	resource_id: resource.id)) %>
+      <button><i class="fa fa-star-o favorite" aria-hidden="true"></i></button>
+      <li class = 'hidden' id=<%=Favorite.find_by(favoriter_id: current_user.id,
+      resource_id: resource.id).id %>></li>
+      <% else %>
+        <button><i class="fa fa-star-o" aria-hidden="true"></i></button>
+      <% end %>
+      <%= resource.title %> - Created By: User #<%= resource.creator_id %> <%= link_to resource.title, resource.url %>
+      <li class='hidden' id=<%=resource.id%>></li>
+    </li>
     <% end %>
   </ul>
 </div>

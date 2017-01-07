@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   resources :favorites
   get '/tags/new', to: 'tags#new'
   post '/tags', to: 'tags#create'
-  get '/favorites/new', to: 'favorites#show'
-  post '/favorites', to: 'favorites#create'
-
+  # get '/favorites/new', to: 'favorites#show'
+  # post '/favorites', to: 'favorites#create'
   root 'application#index'
 
   get '/login' => 'sessions#new'
