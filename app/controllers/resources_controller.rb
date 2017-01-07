@@ -3,8 +3,8 @@ class ResourcesController < ApplicationController
   include SessionsHelper
 
   def index
-    @resources = Resource.all
-    # @resources = Resource.joins(:favorites).group("resources.id").order("count(favorites.resource_id) desc")
+    # @resources = Resource.all
+    @resources = Resource.joins("LEFT JOIN favorites ON resources.id = favorites.resource_id").group("resources.id").order("count(favorites.resource_id) desc")
   end
 
   def create
