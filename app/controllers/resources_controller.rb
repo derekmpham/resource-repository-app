@@ -3,8 +3,8 @@ class ResourcesController < ApplicationController
   include SessionsHelper
 
   def index
-    @resources = Resource.joins(:favorites).group("resources.id").order("count(favorites.resource_id) desc")
-    # @resources = Resource.all
+    @resources = Resource.all
+    # @resources = Resource.joins(:favorites).group("resources.id").order("count(favorites.resource_id) desc")
   end
 
   def create
@@ -26,7 +26,7 @@ class ResourcesController < ApplicationController
             input_tag.strip!
             # create tag if not found in database
             Tag.create(name: input_tag) if !Tag.find_by(name: input_tag)
-      
+
             #create resource_tag object in db for every tag associated with resource
             tag_obj = Tag.find_by(name: input_tag)
             ResourceTag.create(resource_id: @resource.id, tag_id: tag_obj.id) if !ResourceTag.find_by(resource_id: @resource.id, tag_id: tag_obj.id)
