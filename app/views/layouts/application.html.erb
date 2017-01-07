@@ -10,21 +10,39 @@
   </head>
 
   <body>
-    <nav>
-      <h1>
-        <%= link_to "DBC Resource Repository", resources_path %>
-      </h1>
-      <% if current_user %>
-        <p class="nav navbar-nav navbar-right">(<%= current_user.email %> - <%= current_user.role %>) <%= link_to "logout", logout_path %></p>
-        <br>
-        <br>
-        <br>
-        <% if current_user.role == 'teacher' %>
-          <%= link_to "Create new resource", new_resource_path, :class => "btn btn-primary" %>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/resources">Resource Repository App</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <% if !current_user %>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/login">Login <span class="sr-only">(current)</span></a></li>
+              <li><a href="/users/new">Sign Up</a></li>
+            </ul>
+          <% else %>
+            <ul class="nav navbar-nav navbar-right">
+              <% if current_user.role == 'teacher' %>
+              <li><a>(<%= current_user.email %> - <%= current_user.role %>)</a></li>
+              <li><%= link_to "Create new resource", new_resource_path %></li>
+              <li><a href="/logout">Logout</a></li>
+              <% end %>
+            </ul>
         <% end %>
-      <% end %>
+        </div>
+      </div>
     </nav>
-    <br>
-    <%= yield %>
+
+      <div class="container">
+          <%= yield %>
+      </div>
   </body>
 </html>
