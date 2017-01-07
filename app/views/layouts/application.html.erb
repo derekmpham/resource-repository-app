@@ -29,12 +29,15 @@
               <li><a href="/users/new">Sign Up</a></li>
             </ul>
           <% else %>
+            <ul class="nav navbar-nav">
+              <li><%= link_to "View All Resources", resources_path %></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-              <% if current_user.role == 'teacher' %>
               <li><a>(<%= current_user.email %> - <%= current_user.role %>)</a></li>
-              <li><%= link_to "Create new resource", new_resource_path %></li>
-              <li><a href="/logout">Logout</a></li>
+              <% if current_user.role == 'teacher' %>
+                <li><%= link_to "Create New Resource", new_resource_path %></li>
               <% end %>
+              <li><a href="/logout">Logout</a></li>
             </ul>
         <% end %>
         </div>
