@@ -4,7 +4,13 @@ class ResourcesController < ApplicationController
 
   def index
     # @resources = Resource.joins(:favorites).group("resources.id").order("count(favorites.resource_id) desc")
-    @resources = Resource.all
+    if current_user.role == 'teacher'
+      @resources = Resource.all
+    else
+      @resources = Resource.all.to_a.reject do |resource| 
+        resource.tags.select{|tag| tag.name == 'teacher only'}.length > 0
+      end
+    end
   end
 
   def create

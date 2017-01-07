@@ -14,8 +14,10 @@
       <% @tags.each do |tag| %>
         <% if tag.name == @q.downcase %>
             <% tag.resources.each do |resource| %>
-              <li><i class="fa fa-star-o" aria-hidden="true"></i>
-<%= link_to resource.title, resource.url %> </li>
+              <% unless current_user.role == 'student' && (resource.tags.select{|tag| tag.name == 'teacher only'}).length > 0 %>
+                <li><i class="fa fa-star-o" aria-hidden="true"></i>
+  <%= link_to resource.title, resource.url %> </li>
+              <% end %>
             <% end %>
         <% end %>
       <% end %>
