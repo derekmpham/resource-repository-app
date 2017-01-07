@@ -11,6 +11,7 @@ User.delete_all
 Resource.delete_all
 ResourceTag.delete_all
 Tag.delete_all
+Favorite.delete_all
 
 student_users = 20.times.map do
   User.create!(email: Faker::Internet.email,
@@ -39,4 +40,11 @@ Tag.create(name: "python")
 tagged_resources = Resource.all.each do |resource|
   num = Tag.all.sample.id
   ResourceTag.create!(resource_id: resource.id, tag_id: num)
+end
+
+
+20.times do 
+  liker = User.all.sample.id
+  resource_num = Resource.all.sample.id
+  Favorite.create(favoriter_id: liker, resource_id: resource_num)
 end
